@@ -5,16 +5,16 @@ type Tree = {
   [key: string]: any;
 };
 
-function loadTree(): Tree {
+export function loadTree(): Tree {
   const data = fs.readFileSync("dicts/tree.json", "utf8");
   return JSON.parse(data);
 }
 
-function parseBoolean(value: string) {
+export function parseBoolean(value: string) {
   return value?.toLowerCase() === "true";
 }
 
-function analyze(phrase: string, level: number, dict: Tree) {
+export function analyze(phrase: string, level: number, dict: Tree) {
   const words = phrase.toLowerCase().split(" ");
 
   const levelMatches: Record<string, string[]> = {};

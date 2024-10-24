@@ -4,7 +4,11 @@
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/node": "^22.7.9"
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.7.9",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -12,6 +16,7 @@
   "scripts": {
     "analyze": "bun run cli.ts analyze -–depth 3 --verbose true 'Eu vi gorilas e papagaios'",
     "build": "bun --target=bun build cli.ts --outdir ./build",
-    "start": "bun run build/cli.js"
+    "start": "bun run build/cli.js",
+    "test": "jest"
   }
 }
