@@ -1,4 +1,4 @@
-import { Category } from "@/components/tree-form";
+import { Category } from "@/components/tabs";
 
 export function isCategoriesValids(category: Category) {
   if (typeof category.name !== "string" || category.name.trim() === "") {

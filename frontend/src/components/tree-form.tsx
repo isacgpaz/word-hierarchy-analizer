@@ -1,4 +1,4 @@
-import { useForm, useFieldArray, useFormContext } from "react-hook-form";
+import { useFieldArray, useFormContext, UseFormReturn } from "react-hook-form";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form";
@@ -6,32 +6,19 @@ import { Input } from "./ui/input";
 import { Trash } from "lucide-react";
 import { parseToJson } from "@/helpers/parse-to-json";
 import { isCategoriesValids } from "@/helpers/is-categories-valids";
+import { Tree } from "./tabs";
 
-export type Category = {
-  name: string;
-  subcategories?: Category[];
-  values?: string[];
+type TreeForm = {
+  form: UseFormReturn<Tree>;
 };
 
-export type Tree = {
-  name: string;
-  subcategories: Category[];
-};
-
-export function TreeForm() {
-  const form = useForm<Tree>({
-    defaultValues: {
-      name: "",
-      subcategories: [],
-    },
-  });
-
+export function TreeForm({ form }: TreeForm) {
   const onSubmit = (data: Tree) => {
     console.log(JSON.stringify(data, null, 2));
     console.log(parseToJson(data));
   };
 
-  const isTreeValid = isCategoriesValids(form.watch());
+  const isTreeValid = isCategoriesValids(form.getValues());
 
   return (
     <Form {...form}>
@@ -96,7 +83,9 @@ function CategoryList({ name, isValuesEmpty = true }: CategoryListProps) {
         return (
           <div
             key={field.id}
-            className={cn("flex flex-col gap-4 mb-4 border-2 p-4 rounded-lg")}
+            className={cn(
+              "flex flex-col gap-4 mb-4 border-2 p-4 rounded-lg bg-white"
+            )}
           >
             <FormField
               control={control}

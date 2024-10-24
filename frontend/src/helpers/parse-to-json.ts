@@ -1,4 +1,4 @@
-import { Category, Tree } from "@/components/tree-form";
+import { Category, Tree } from "@/components/tabs";
 
 export function parseToJson(tree: Tree) {
   function transform(subcategories: Category[], key: string) {
@@ -26,6 +26,6 @@ export function parseToJson(tree: Tree) {
   }
 
   return {
-    [tree.name]: JSON.stringify(transform(tree.subcategories, tree.name)),
+    [tree.name]: transform(tree.subcategories, tree.name),
   };
 }

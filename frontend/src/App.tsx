@@ -1,6 +1,6 @@
 import { Footer } from "./components/footer";
 import { Header } from "./components/header";
-import { Tabss } from "./components/tabs";
+import { MainTabs } from "./components/tabs";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Header />
 
       <main className="flex-1 max-w-4xl mx-auto w-full my-6 flex flex-col">
-        <Tabss />
+        <MainTabs />
       </main>
 
       <Footer />
