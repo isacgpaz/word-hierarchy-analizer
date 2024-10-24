@@ -64,7 +64,7 @@ Para rodar a aplicação localmente, utilize o comando:
 npm run dev
 ```
 
-A aplicação será executada e estará disponível em `http://localhost:3000`.
+A aplicação será executada e estará disponível em `http://localhost:5173`.
 
 ### Funcionalidades das Abas
 
