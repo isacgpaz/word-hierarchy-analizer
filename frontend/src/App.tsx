@@ -1,12 +1,15 @@
 import { Footer } from "./components/footer";
 import { Header } from "./components/header";
+import { Tabss } from "./components/tabs";
 
 function App() {
   return (
-    <div className="h-dvh overflow-auto bg-slate-950 p-12 flex flex-col">
+    <div className="min-h-dvh bg-slate-100 p-12 flex flex-col">
       <Header />
 
-      <main className="flex-1">a</main>
+      <main className="flex-1 max-w-4xl mx-auto w-full my-6 flex flex-col">
+        <Tabss />
+      </main>
 
       <Footer />
     </div>
