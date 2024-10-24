@@ -10,6 +10,10 @@ function loadTree(): Tree {
   return JSON.parse(data);
 }
 
+function parseBoolean(value: string) {
+  return value.toLowerCase() === "true";
+}
+
 function analyze(phrase: string, level: number, dict: Tree) {
   const words = phrase.toLowerCase().split(" ");
 
@@ -55,7 +59,11 @@ function analyze(phrase: string, level: number, dict: Tree) {
     }
   }
 
-  if (categories.hasOwnProperty("undefined") || phrase === "") {
+  if (
+    categories.hasOwnProperty("undefined") ||
+    Object.keys(categories).length === 0 ||
+    phrase === ""
+  ) {
     return 0;
   }
 
@@ -66,16 +74,17 @@ function analyze(phrase: string, level: number, dict: Tree) {
   return result;
 }
 
-const phrase = "Vi papagaios";
-const level = 3;
-const verbose = true;
-
 const startLoading = performance.now();
-const tree = loadTree();
+console.log(process.argv);
+const depth = parseInt(process.argv[4]);
+const verbose = parseBoolean(process.argv[6]);
+const phrase = process.argv.slice(7).join(" ");
 const endLoading = performance.now();
 
+const tree = loadTree();
+
 const startAnalysis = performance.now();
-const result = analyze(phrase, level, tree);
+const result = analyze(phrase ?? "", depth, tree);
 const endAnalysis = performance.now();
 
 console.log(result);

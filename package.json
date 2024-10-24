@@ -9,6 +9,6 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "analyze": "bun --watch run cli.ts analyze --depth 3 --phrase 'pato'"
+    "analyze": "bun run cli.ts analyze -–depth 3 --verbose true 'Eu vi gorilas e papagaios'"
   }
 }
