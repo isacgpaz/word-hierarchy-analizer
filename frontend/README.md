@@ -1,50 +1,93 @@
-# React + TypeScript + Vite
+# Word Hierarchy Analyzer - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é a interface gráfica (frontend) da aplicação **Word Hierarchy Analyzer**, que permite a criação e visualização de uma hierarquia de palavras em formato JSON. A interface possui duas abas principais: uma para montar a estrutura da hierarquia e outra para exibir o JSON gerado e baixá-lo, permitindo seu uso no backend da aplicação.
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. React
+2. TypeScript
+3. Shadcn UI
+4. Tailwind CSS
+5. React Hook Form
+6. Zod
+7. Vite
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Tab de Criação**: Interface para criar um JSON seguindo o formato esperado pelo analisador de hierarquia.
+2. **Tab de Visualização e Download**: Exibe o JSON criado e permite baixá-lo no formato necessário para ser utilizado na CLI.
 
-- Configure the top-level `parserOptions` property like this:
+## Estrutura do Projeto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
+A interface é composta por duas abas principais:
+
+1. **Montar JSON**: Permite ao usuário criar uma árvore de categorias e palavras, semelhante ao exemplo encontrado em `cli/dicts/tree.json`. Nesta aba, o usuário pode adicionar categorias, subcategorias e palavras, organizando a hierarquia de forma visual.
+2. **Visualizar e Baixar JSON**: Mostra o JSON gerado a partir da aba de montagem e permite ao usuário baixar o arquivo para ser usado no backend da aplicação.
+
+## Exemplo de JSON
+
+Aqui está um exemplo do formato de JSON que pode ser gerado e baixado:
+
+```json
+{
+  "fruits": {
+    "citrus": ["orange", "lemon"],
+    "tropical": ["banana", "mango"]
   },
-})
+  "vegetables": {
+    "root": ["carrot", "beet"],
+    "leafy": ["lettuce", "spinach"]
+  }
+}
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Como Executar o Frontend
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Pré-requisitos
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- Node.js instalado na sua máquina.
+
+### Instalação
+
+1. Clone este repositório.
+2. Instale as dependências do frontend com:
+
+   ```bash
+   npm install
+   ```
+
+### Executando a Aplicação
+
+Para rodar a aplicação localmente, utilize o comando:
+
+```bash
+npm run dev
 ```
+
+A aplicação será executada e estará disponível em `http://localhost:3000`.
+
+### Funcionalidades das Abas
+
+- **Montar JSON**:
+
+  - Adicionar categorias e subcategorias.
+  - Adicionar palavras a cada categoria/subcategoria.
+  - Visualizar a estrutura de hierarquia em tempo real.
+
+- **Visualizar e Baixar JSON**:
+  - Exibir o JSON gerado.
+  - Botão para fazer o download do arquivo JSON e utilizar na CLI backend.
+
+## Como Usar com a CLI
+
+1. Baixe o arquivo JSON
+
+2. Salve o arquivo JSON em /cli/dicts/tree.json
+
+3. Vá para o diretório /cli e execute no terminal:
+
+```
+bun run analyze --depth 3 --verbose true "Eu vi gorilas e papagaios"
+```
+
+4. Atualize os parâmetros da CLI e divirta-se!
