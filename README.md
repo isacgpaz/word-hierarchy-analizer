@@ -41,7 +41,7 @@ Este projeto, **Word Hierarchy Analyzer**, é uma aplicação completa que inclu
 
 1. Clone o repositório.
 2. Instale as dependências com `npm install`.
-3. Rode o frontend com `npm run dev` e acesse a aplicação em `http://localhost:3000`.
+3. Rode o frontend com `npm run dev` e acesse a aplicação em `http://localhost:5173`.
 
 ### CLI:
 
