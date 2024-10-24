@@ -10,12 +10,13 @@ import { Tree } from "./tabs";
 
 type TreeForm = {
   form: UseFormReturn<Tree>;
+  setTab: (value: string) => void;
 };
 
-export function TreeForm({ form }: TreeForm) {
+export function TreeForm({ form, setTab }: TreeForm) {
   const onSubmit = (data: Tree) => {
-    console.log(JSON.stringify(data, null, 2));
     console.log(parseToJson(data));
+    setTab("visualize");
   };
 
   const isTreeValid = isCategoriesValids(form.getValues());

@@ -2,6 +2,7 @@ import { TreeForm } from "./tree-form";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { useForm } from "react-hook-form";
 import { TreeResult } from "./tree-result";
+import { useState } from "react";
 
 export type Category = {
   name: string;
@@ -15,6 +16,8 @@ export type Tree = {
 };
 
 export function MainTabs() {
+  const [tab, setTab] = useState("build");
+
   // The form is here to preserve state between tabs
   const form = useForm<Tree>({
     defaultValues: {
@@ -24,7 +27,11 @@ export function MainTabs() {
   });
 
   return (
-    <Tabs defaultValue="build" className="max-w-xl w-full mx-auto">
+    <Tabs
+      value={tab}
+      onValueChange={setTab}
+      className="max-w-xl w-full mx-auto"
+    >
       <TabsList className="w-full gap-2 mb-6">
         <TabsTrigger value="build" className="w-full">
           Build
@@ -35,7 +42,7 @@ export function MainTabs() {
       </TabsList>
 
       <TabsContent value="build">
-        <TreeForm form={form} />
+        <TreeForm form={form} setTab={setTab} />
       </TabsContent>
 
       <TabsContent value="visualize">
