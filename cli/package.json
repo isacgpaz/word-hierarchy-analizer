@@ -10,6 +10,8 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "analyze": "bun run cli.ts analyze -–depth 3 --verbose true 'Eu vi gorilas e papagaios'"
+    "analyze": "bun run cli.ts analyze -–depth 3 --verbose true 'Eu vi gorilas e papagaios'",
+    "build": "bun --target=bun build cli.ts --outdir ./build",
+    "start": "bun run build/cli.js"
   }
 }
