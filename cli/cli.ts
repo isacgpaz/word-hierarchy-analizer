@@ -75,7 +75,6 @@ function analyze(phrase: string, level: number, dict: Tree) {
 }
 
 const startLoading = performance.now();
-console.log(process.argv);
 const depth = parseInt(process.argv[4]);
 const verbose = parseBoolean(process.argv[6]);
 const phrase = process.argv.slice(7).join(" ");
