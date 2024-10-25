@@ -84,7 +84,7 @@ bun run start analyze -–depth --verbose --phrase
 #### Exemplo
 
 ```bash
-bun run start analyze -–depth 3 --verbose true 'Eu vi jacares'
+bun run cli.ts analyze --depth 1 --verbose true "Eu vi uma onça e um pato"
 ```
 
 Neste exemplo, a aplicação:

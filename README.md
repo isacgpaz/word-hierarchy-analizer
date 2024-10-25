@@ -41,14 +41,14 @@ Este projeto, **Word Hierarchy Analyzer**, é uma aplicação completa que inclu
 
 1. Clone o repositório.
 2. Instale as dependências com `npm install`.
-3. Rode o frontend com `npm run dev` e acesse a aplicação em `http://localhost:3000`.
+3. Rode o frontend com `npm run dev` e acesse a aplicação em `http://localhost:5173`.
 
 ### CLI:
 
 1. Salve o arquivo JSON gerado pelo frontend em `/cli/dicts/tree.json`.
 2. No diretório `/cli`, execute o comando para análise de frases:
    ```bash
-   bun run analyze --depth 3 --verbose true "Eu vi gorilas e papagaios"
+   bun run cli.ts analyze --depth 1 --verbose true "Eu vi uma onça e um pato""
    ```
 3. Atualize os parâmetros da CLI conforme necessário.
 
